@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "111140228804",
+    "project_id": "project-info-blast-22",
+    "storage_bucket": "project-info-blast-22.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:111140228804:android:e031a4072d523bd7408391",
+        "android_client_info": {
+          "package_name": "com.example.projectinfoblast"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC15KrJiV39FXIvZ5ayuuJz0kte_SQLq8o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
