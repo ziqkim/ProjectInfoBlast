@@ -1,5 +1,6 @@
 package com.example.projectinfoblast;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,6 +19,13 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 public class MainActivity extends AppCompatActivity
@@ -27,6 +35,9 @@ public class MainActivity extends AppCompatActivity
     private RecyclerView recyclerView;
     private Toolbar mToolBar;
     private ActionBarDrawerToggle actionBarDrawerToggle;
+    private FirebaseAuth mAuth;
+    private DatabaseReference UsersRef;
+    private DataSnapshot dataSnapshot;
 
 
     @Override
@@ -34,6 +45,14 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+
+
+        mAuth = FirebaseAuth.getInstance();
+        UsersRef = FirebaseDatabase.getInstance().getReference().child("Users");
+
+
+
+
         mToolBar = (Toolbar) findViewById(R.id.main_page_toolbar);
         setSupportActionBar(mToolBar); //add tool bar to main activity
         getSupportActionBar().setTitle("Home");
@@ -61,6 +80,62 @@ public class MainActivity extends AppCompatActivity
         });
 
     }
+
+    @Override
+    protected void onStart()
+    {
+        super.onStart();
+
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+
+        if(currentUser == null)
+        {
+            SendUserToLoginActivity();
+        }
+        else
+        {
+            CheckUserExistence();
+        }
+    }
+
+    private void CheckUserExistence()
+    {
+        final String current_user_id = mAuth.getCurrentUser().getUid();
+
+        UsersRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot)
+            {
+                if(!dataSnapshot.hasChild(current_user_id))
+                {
+                    SendUserToSetupActivity();
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error)
+            {
+
+
+            }
+        });
+    }
+
+    private void SendUserToSetupActivity()
+    {
+        Intent setupIntent = new Intent(MainActivity.this, SetupActivity.class);
+        setupIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(setupIntent);
+        finish();
+    }
+
+
+    private void SendUserToLoginActivity()
+    {
+
+    }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
