@@ -17,7 +17,7 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.navigation.NavigationView;
-// haikhal was here
+// Aceceh was here
 
 public class MainActivity extends AppCompatActivity
 {
