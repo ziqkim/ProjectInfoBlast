@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity
     private Toolbar mToolBar;
     private ActionBarDrawerToggle actionBarDrawerToggle;
 
-
+// ADAM WAS HERE
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
