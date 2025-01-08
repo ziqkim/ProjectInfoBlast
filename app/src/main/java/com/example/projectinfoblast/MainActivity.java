@@ -17,7 +17,6 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.navigation.NavigationView;
-// Acecehg was here
 
 public class MainActivity extends AppCompatActivity
 {
@@ -39,7 +38,7 @@ public class MainActivity extends AppCompatActivity
 
 
 
-        //Aisy chomel
+
         drawerLayout = (DrawerLayout) findViewById(R.id.drawable_layout);
         actionBarDrawerToggle = new ActionBarDrawerToggle(MainActivity.this,drawerLayout,R.string.open_drawer,R.string.close_drawer);
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
