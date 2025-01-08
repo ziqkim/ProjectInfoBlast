@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity
 
 
 
-
+        //Aisy chomel
         drawerLayout = (DrawerLayout) findViewById(R.id.drawable_layout);
         actionBarDrawerToggle = new ActionBarDrawerToggle(MainActivity.this,drawerLayout,R.string.open_drawer,R.string.close_drawer);
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
