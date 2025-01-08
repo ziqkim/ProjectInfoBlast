@@ -35,6 +35,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+    //Haziq was here
 
 
     private void SendUserToRegisterActivity()
