@@ -24,7 +24,7 @@ public class SetupActivity extends AppCompatActivity {
 
         UserName = (EditText) findViewById(R.id.setup_username);
         FullName = (EditText) findViewById(R.id.setup_fullname);
-        CountryName = (EditText) findViewById(R.id.setup_country);
+        CountryName = (EditText) findViewById(R.id.setup_course);
         SaveInformationbuttion = (Button) findViewById(R.id.register_button);
         ProfileImage = (CircleImageView) findViewById(R.id.setup_profile_image);
 
