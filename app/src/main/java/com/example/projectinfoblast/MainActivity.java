@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity
     private ActionBarDrawerToggle actionBarDrawerToggle;
     private FirebaseAuth mAuth;
 
-
+// ADAM WAS HERE
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
